@@ -8,7 +8,9 @@
     "status": true,
     "stock": 15,
     "category": "Campeones del Mundo",
-    "thumbnails": ["/images/messi_copa.jpg"]
+    "thumbnails": [
+      "/images/messi_copa.jpg"
+    ]
   },
   {
     "id": "b2c3d4e5-f6a7-8901-2345-67890abcdef1",
@@ -19,7 +21,9 @@
     "status": true,
     "stock": 20,
     "category": "Momentos Épicos",
-    "thumbnails": ["/images/dibu_atajada.jpg"]
+    "thumbnails": [
+      "/images/dibu_atajada.jpg"
+    ]
   },
   {
     "id": "c3d4e5f6-a7b8-9012-3456-7890abcdef2",
@@ -41,7 +45,9 @@
     "status": true,
     "stock": 18,
     "category": "Momentos Épicos",
-    "thumbnails": ["/images/dimaria_final.jpg"]
+    "thumbnails": [
+      "/images/dimaria_final.jpg"
+    ]
   },
   {
     "id": "e5f6a7b8-c9d0-1234-5678-90abcdef4",
@@ -85,7 +91,9 @@
     "status": true,
     "stock": 40,
     "category": "Defensa Sólida",
-    "thumbnails": ["/images/licha.jpg"]
+    "thumbnails": [
+      "/images/licha.jpg"
+    ]
   },
   {
     "id": "c9d0e1f2-a3b4-5678-9012-3def8",
@@ -118,7 +126,9 @@
     "status": true,
     "stock": 22,
     "category": "Cuerpo Técnico",
-    "thumbnails": ["/images/scaloni.jpg"]
+    "thumbnails": [
+      "/images/scaloni.jpg"
+    ]
   },
   {
     "id": "f2a3b4c5-d6e7-8901-2345-6ab1",
@@ -162,7 +172,9 @@
     "status": true,
     "stock": 30,
     "category": "Especiales",
-    "thumbnails": ["/images/escudo_afa.jpg"]
+    "thumbnails": [
+      "/images/escudo_afa.jpg"
+    ]
   },
   {
     "id": "d6e7f8a9-b0c1-2345-6789-0ef5",
@@ -206,7 +218,9 @@
     "status": true,
     "stock": 10,
     "category": "Leyendas",
-    "thumbnails": ["/images/maradona_leyenda.jpg"]
+    "thumbnails": [
+      "/images/maradona_leyenda.jpg"
+    ]
   },
   {
     "id": "b0c1d2e3-f4a5-6789-0123-4cd9",
