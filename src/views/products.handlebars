@@ -1,0 +1,66 @@
+<h1>Nuestras Figuritas</h1>
+<div class="product-list">
+    {{#each products}}
+    <div class="product-card">
+        <h3>{{this.title}}</h3>
+        <p>{{this.description}}</p>
+        <p><strong>Categoría:</strong> {{this.category}}</p>
+        <p class="price">${{this.price}}</p>
+        <button class="btn" onclick="agregarAlCarrito('{{this._id}}')">Agregar al Carrito</button>
+    </div>
+    {{/each}}
+</div>
+
+<div class="pagination">
+    {{#if hasPrevPage}}
+        <a href="{{prevLink}}">« Anterior</a>
+    {{/if}}
+    {{#if totalPages}}
+    <span>{{page}}</span>
+    {{/if}}
+    {{#if hasNextPage}}
+        <a href="{{nextLink}}">Siguiente »</a>
+    {{/if}}
+</div>
+
+<script>
+    const miCarritoId = "ID_DE_UN_CARRITO_REAL";
+
+    async function agregarAlCarrito(productId) {
+        if (miCarritoId === "ID_DE_UN_CARRITO_REAL") {
+            alert("Por favor, configura un ID de carrito válido en el script de esta página.");
+            return;
+        }
+        
+        try {
+            const resCart = await fetch(`/api/carts/${miCarritoId}`);
+            if (!resCart.ok) throw new Error('No se pudo obtener el carrito.');
+
+            const cartData = await resCart.json();
+            const productoExistente = cartData.products.find(p => p.product._id === productId);
+
+            if (productoExistente) {
+                const nuevaCantidad = productoExistente.quantity + 1;
+                const response = await fetch(`/api/carts/${miCarritoId}/products/${productId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ quantity: nuevaCantidad })
+                });
+                if (!response.ok) throw new Error('Error al actualizar la cantidad.');
+                alert(`¡Otra figurita agregada!`);
+            } else {
+                const nuevosProductos = [...cartData.products.map(p => ({ product: p.product._id, quantity: p.quantity })), { product: productId, quantity: 1 }];
+                const response = await fetch(`/api/carts/${miCarritoId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ products: nuevosProductos })
+                });
+                if (!response.ok) throw new Error('Error al agregar el producto.');
+                alert('¡Figurita agregada al carrito!');
+            }
+        } catch (error) {
+            console.error("Error al agregar al carrito:", error);
+            alert("Hubo un problema al agregar la figurita.");
+        }
+    }
+</script>
