@@ -1,0 +1,64 @@
+<div class="profile-container">
+    <h1>¡Hola, {{user.first_name}} {{user.last_name}}!</h1>
+    <p>Este es tu perfil. Llegar acá significa que tu token JWT es válido.</p>
+    <ul>
+        <li><strong>Email:</strong> {{user.email}}</li>
+        <li><strong>Edad:</strong> {{user.age}}</li>
+        <li><strong>Rol:</strong> {{user.role}}</li>
+        <li><strong>ID de Carrito:</strong> {{user.cart}}</li>
+    </ul>
+    
+    <form id="logout-form">
+        <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('logout-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const response = await fetch('/api/sessions/logout', {
+            method: 'POST'
+        });
+
+        if (response.ok) {
+            alert('¡Sesión cerrada con éxito!');
+            window.location.href = '/login';
+        } else {
+            alert('Error al cerrar sesión.');
+        }
+    });
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+    :root {
+        --primary-color: #007bff;
+        --dark-color: #333;
+        --light-color: #f4f4f4;
+        --border-radius: 8px;
+        --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: var(--light-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+    }
+    .profile-container {
+        background: #fff;
+        padding: 30px 40px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        width: 100%;
+        max-width: 500px;
+    }
+    .profile-container h1 { font-weight: 300; }
+    .profile-container ul { list-style: none; padding: 0; margin: 20px 0; }
+    .profile-container li { font-size: 1.1em; margin-bottom: 10px; }
+    .btn { display: inline-block; background: var(--primary-color); color: #fff; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; text-align: center; font-size: 1em; margin-top: 10px; transition: background-color 0.3s; }
+    .btn:hover { background: #0056b3; }
+    .btn-danger { background-color: #dc3545; }
+</style>

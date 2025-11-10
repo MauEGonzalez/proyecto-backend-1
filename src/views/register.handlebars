@@ -1,0 +1,96 @@
+<div class="form-container">
+    <h1>Registrarse</h1>
+    <form id="register-form">
+        <input type="text" name="first_name" placeholder="Nombre" required>
+        <input type="text" name="last_name" placeholder="Apellido" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="number" name="age" placeholder="Edad" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit" class="btn">Registrarse</button>
+    </form>
+    <a href="/login">¿Ya tenés cuenta? ¡Iniciá sesión!</a>
+</div>
+<script src="/js/register.js"></script>
+<style>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+    :root {
+        --primary-color: #007bff;
+        --dark-color: #333;
+        --light-color: #f4f4f4;
+        --border-radius: 8px;
+        --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: var(--light-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+    }
+
+    .form-container {
+        background: #fff;
+        padding: 30px 40px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    h1 {
+        font-weight: 300;
+        margin-bottom: 25px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="password"] {
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1em;
+    }
+
+    .btn {
+        display: inline-block;
+        background: var(--primary-color);
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+        background: #0056b3;
+    }
+    
+    .form-container a {
+        display: block;
+        margin-top: 20px;
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    .form-container a:hover {
+        text-decoration: underline;
+    }
+</style>
+</style>
